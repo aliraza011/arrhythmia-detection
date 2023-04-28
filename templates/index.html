@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> ECG Classifier</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+</head>
+<center>
+  
+<form method="POST" style="align-content: center;">
+  <h1>Arrhythmia detection with Explainable AI</h1>
+  <br><br>
+<label>Input an ECG sample number</label>
+<div class="row">
+<div class="col-lg-1 col-offset-6 mx-auto">
+  </div></div>
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="input-group">
+            <input type="text"  name="sample"class="form-control" >
+            <span class="input-group-btn">
+                <input type="submit"  class="btn btn-primary " value="Submit">
+            </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-4 -->
+</div><!-- /.row -->
+<br> <br>
+
+<br>
+<br>
+<img src="{{href}}" height="600" class="img-rounded" align="center" />
+
+</form></center>
+<style>
+  form {
+    text-align: center;
+  }
+  .person_pic {
+ margin-left: 201px;
+display: inline-block;
+font-weight:bold;
+}
+.person_pic label{
+font-weight:bold;
+}
+.button {
+    position: absolute;
+    top:50%
+}
+
+</style>
+
+</html>
