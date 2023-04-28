@@ -27,6 +27,7 @@ def Grad_cam(model, input_test,sample_number):
     array = np.expand_dims(array, axis=0)
     #print("array:",array.shape) 
     predict = model.predict(array)
+    per = max(predict[0])
     target_class = np.argmax(predict[0])
     name=classified_class(target_class)
     #print("Target Class = ", target_class, "corresponding to:", predict, "Obese is [0., 1.]")
@@ -69,7 +70,7 @@ def Grad_cam(model, input_test,sample_number):
     plt.savefig("static/draw.png")
     plt.clf()
     
-    return big_heatmap
+    return big_heatmap,per
 
 
 df=pd.read_csv('mitbih_test.csv')
@@ -94,9 +95,9 @@ def hello():
         plt.savefig('static/org.png')
         plt.clf()
         new_model = tf.keras.models.load_model('ecgclassifier')
-        Grad_cam(new_model, X_test,val)
-        
-        return render_template('index.html', href='static/draw.png', href2='static/org.png')
+        _,per=Grad_cam(new_model, X_test,val)
+        a="Confidance Score:"+str(round((per*100),2))+"%"
+        return render_template('index.html', href='static/draw.png', href2='static/org.png',con=a)
 if __name__=='__main__':
     from werkzeug.serving import run_simple
     app.jinja_env.auto_reload = True
