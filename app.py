@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import cv2
+from werkzeug.serving import run_simple
 import numpy as np 
 
 def classified_class(target_class):
@@ -83,7 +84,7 @@ X_test=(X_test-X_test.mean())/X_test.std()
 app=Flask(__name__)
 
 @app.route("/", methods=['POST','GET'])
-def hello():
+def start_app():
     re=request.method
     if re=='GET':
         return render_template('index.html')
@@ -100,7 +101,7 @@ def hello():
         a="Confidance Score:"+str(round((per*100),2))+"%"
         return render_template('index.html', href='static/draw.png', href2='static/org.png',con=a)
 if __name__=='__main__':
-    from werkzeug.serving import run_simple
+    
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     run_simple('localhost', 5000, app)
