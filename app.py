@@ -17,6 +17,7 @@ def classified_class(target_class):
     if target_class==4:
         return'Unknown Beats '
 def Grad_cam(model, input_test,sample_number):
+    """This function returns the grade CAM of a given input sample, along with predicted label as title of the grade-CAM plot"""
     
     array = np.array(input_test[sample_number])
     array1 = np.array(input_test[sample_number])
