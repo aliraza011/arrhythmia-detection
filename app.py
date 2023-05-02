@@ -32,7 +32,7 @@ def Grad_cam(model, input_test,sample_number):
     per = max(predict[0])
     target_class = np.argmax(predict[0])
     name=classified_class(target_class)
-    #print("Target Class = ", target_class, "corresponding to:", predict, "Obese is [0., 1.]")
+    #print("Target Class = ", target_class, "corresponding to:", predict)
     last_conv = model.get_layer('conv1d_4') #last_conv= model.layers[8]
     grad_model = tf.keras.models.Model([model.inputs], [last_conv.output, model.output])
 
