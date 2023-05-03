@@ -22,10 +22,6 @@ def Grad_cam(model, input_test,sample_number):
     
     array = np.array(input_test[sample_number])
     array1 = np.array(input_test[sample_number])
-    # `array` is a float32 Numpy array of shape (299, 299, 3)
-    #print("array:",array.shape)   
-    # We add a dimension to transform our array into a "batch"
-    # of size (1, 299, 299, 3)
     array = np.expand_dims(array, axis=0)
     #print("array:",array.shape) 
     predict = model.predict(array)
